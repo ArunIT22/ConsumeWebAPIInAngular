@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-lg-6">
+    <h2>Product List</h2>
+    <a routerLink="/products/add-product" class="btn btn-warning"
+      >Add New Product</a
+    >
+    <hr />
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Selling Price</th>
+          <th>Discount</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{ p.product_Name }}</td>
+          <td>{{ p.sellingPrice }}</td>
+          <td>{{ p.discount }}</td>
+          <td>
+            <a routerLink="/products/details/{{ p.id }}" class="btn btn-primary">Details</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

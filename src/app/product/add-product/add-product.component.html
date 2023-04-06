@@ -1,0 +1,42 @@
+<div class="row">
+  <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+    <div class="col-lg-4">
+      <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="product_Name"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">List Price</label>
+        <input type="text" class="form-control" formControlName="listPrice" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Selling Price</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="sellingPrice"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Discount</label>
+        <input type="text" class="form-control" formControlName="discount" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select class="form-select" formControlName="categoryId">
+          <option selected disabled value="">--Select a Category--</option>
+          <option *ngFor="let c of categories" [ngValue]="c.id">
+            {{ c.categoryName }}
+          </option>
+        </select>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>

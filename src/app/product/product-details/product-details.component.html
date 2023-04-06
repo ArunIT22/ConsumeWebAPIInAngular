@@ -1,0 +1,33 @@
+<div class="row mt-3">
+  <div class="card" style="width: 20rem">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Product Name: </strong> {{ product.product_Name }}
+      </li>
+      <li class="list-group-item">
+        <strong>Category: </strong>{{ product.categoryName }}
+      </li>
+      <li class="list-group-item">
+        <strong>List Price: </strong>{{ product.listPrice }}
+      </li>
+      <li class="list-group-item">
+        <strong>Selling Price: </strong>{{ product.sellingPrice }}
+      </li>
+      <li class="list-group-item">
+        <strong>Discount: </strong>{{ product.discount }}
+      </li>
+    </ul>
+    <div class="card-body" [hidden]="!canDelete">
+      <div>Do you want to delete this product?</div>
+      <button class="card-link btn btn-danger" (click)="onDelete()">Yes</button>
+      <button class="card-link btn btn-success">No</button>
+    </div>
+    <div class="card-body" [hidden]="canDelete">
+      <button class="card-link btn btn-danger" (click)="enableDelete()">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <a routerLink="/products">Back to List</a>
+</div>
