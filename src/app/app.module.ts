@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductDetailsComponent } from './product/product-details/product-details.component';
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { TokenInterceptor } from './helpers/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,11 @@ import { LoginComponent } from './login/login.component';
     }),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
