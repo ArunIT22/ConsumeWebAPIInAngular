@@ -1,0 +1,29 @@
+<div class="row">
+  <form [formGroup]="newUserForm" (ngSubmit)="register()">
+    <div class="col-lg-4">
+      <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email Id</label>
+        <input type="text" class="form-control" formControlName="emailId" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="username" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="text" class="form-control" formControlName="password" />
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+    </div>
+  </form>
+</div>

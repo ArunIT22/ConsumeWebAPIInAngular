@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { Category } from 'src/app/models/category.model';
 import { Product } from 'src/app/models/product.model';
@@ -18,7 +19,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
   mySub: Subscription = null;
   categories: Category[];
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.productForm = new FormGroup({
@@ -43,6 +44,7 @@ export class AddProductComponent implements OnInit, OnDestroy {
         },
         error: (err) => { console.log(err) },
         complete: () => {
+          this.toastr.success("Product added successfully", "SUCCESS");
           this.productForm.reset();
         }
       })
